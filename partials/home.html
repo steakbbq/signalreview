@@ -1,0 +1,43 @@
+
+
+<div class="leftmenu" ng-class="{leftMenuShow: leftMenuShowing}" ng-mouseenter="leftMenuShowing = true" ng-mouseleave="leftMenuShowing = false">
+    <a href=""><span class="glyphicon glyphicon-home whiteglyph"></span>Home</a>
+    <a href="" ng-click="hideSidebars(); sidebars.searchResultsShown = true; changeUrl('/search/'+searchValue)"><span class="glyphicon glyphicon-search whiteglyph"></span>Find Business</a>
+    <a href=""><span class="glyphicon glyphicon-eye-open whiteglyph"></span>Find Signal</a>
+    <a href=""><span class="glyphicon glyphicon-heart-empty whiteglyph"></span>Bookmark</a>
+    <a href=""><span class="glyphicon glyphicon-bullhorn whiteglyph"></span>Share</a>
+    <a href=""><span class="glyphicon glyphicon-warning-sign whiteglyph"></span>HELP!</a>
+    <a href="" ng-click="hideSidebars(); sidebars.showSignin = true; changeUrl('/signin')"><span class="glyphicon glyphicon-download whiteglyph"></span>Sign In!</a>
+</div>
+<div class="sidebar" ng-class="{sidebarShow: sidebars.showSignin}">
+    <span class="glyphicon glyphicon-remove closebutt" ng-click="sidebars.showSignin = false"></span>
+      <h1>Sign In</h1>
+</div>
+<div class="sidebar" ng-class="{sidebarShow: sidebars.searchResultsShown}">
+	<span class="glyphicon glyphicon-remove closebutt" ng-click="hideSearchResults()"></span>
+    <div class="search_entry" ng-repeat="searchResult in model.searchResults | filter:q">
+        <h2>{{searchResult.name}}</h2>
+        <p>Address:{{searchResult.formatted_address}}
+            <br /><button class="reviewBusiness" ng-click="searchResult.isShown = !searchResult.isShown">Review This Business</button>
+        </p>
+        <div  class="reviewholder" ng-class="{reviewslide: searchResult.isShown}">
+            <div class="review">
+                <h3>Submit Review</h3>
+
+                <div ng-class="{emptyStar: IsEmptyStar(searchResult, 0),newStar: true}" star="0"></div>
+                <div ng-class="{emptyStar: IsEmptyStar(searchResult, 1),newStar: IsNewStar(searchResult,1)}" star="1"></div>
+                <div ng-class="{emptyStar: IsEmptyStar(searchResult, 2),newStar: IsNewStar(searchResult,2)}" star="2"></div>
+                <div ng-class="{emptyStar: IsEmptyStar(searchResult, 3),newStar: IsNewStar(searchResult,3)}" star="3"></div>
+                <div ng-class="{emptyStar: IsEmptyStar(searchResult, 4),newStar: IsNewStar(searchResult,4)}" star="4"></div>
+                Your Rating: {{searchResult.theReview + 1 }}</span>
+            </div>
+            <textarea class="reviewtext" placeholder="Please write a short review of the wifi service available at {{searchResult.name}}" ng-model="searchResult.review.text"></textarea>
+            <button ng-click="searchResult.alertIsShown = !searchResult.alertIsShown; submitReview()">Submit Review</button>
+            <div class="alert alert-success alert-dismissable reviewalert" ng-class="{reviewalertslide: searchResult.alertIsShown}" >
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Succesfully Submited Your Review
+            </div>
+        </div>
+    </div>
+</div>
+<map id="map_canvas"></map>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box" ng-model="searchValue">

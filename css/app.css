@@ -1,0 +1,192 @@
+/* app css stylesheet */
+body,html{
+	height:	100%;
+}
+#map_canvas{
+	height:	100%;
+}
+#appHolder{
+	height:100%;	
+}
+.leftmenu a{
+    float: left;
+    clear: both;
+    color: #efefef;
+    font-size: 18px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+#leftmenu a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+.search_results{
+	width:0;
+	height:100%;
+	float:left;
+	background-color:#eeeeee;
+	overflow:auto;
+	position:relative;
+}
+.search_entry{
+	overflow:hidden;
+	clear:both;
+    margin-left:20px;
+    margin-right:20px;
+    width: 350px;
+}
+.closebutt{
+	float:right;
+	margin:20px;	
+	cursor:pointer;
+}
+
+.review div{
+    width:20px;
+    height:20px;
+    margin-bottom:10px;
+    background-size: 20px, 20px;
+    border: 0 solid;
+    float:left;
+    margin-right:5px;
+}
+.reviewBusiness{
+    width: 360px;
+    background-color:#cecece;
+    color:white;
+    border:0 solid;
+    padding: 10px;
+}
+.reviewtext{
+    clear: both;
+    width:360px;
+    height:200px;
+
+
+}
+
+.emptyStar{
+    background-image: url("http://signalreview.2mellow.com/img/review/star_empty.png");
+}
+.newStar{
+    background-image: url("http://signalreview.2mellow.com/img/review/star_newreview.png");
+}
+.oldStar{
+    background-image: url("http://signalreview.2mellow.com/img/review/star_empty.png");
+}
+
+.whiteglyph{
+    color:#efefef;
+    font-size: 24px;
+    margin-right: 30px;
+}
+#appHolder{
+    position: relative;
+}
+
+/*animations*/
+.reviewholder{
+    overflow: hidden;
+    max-height:0px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.reviewalert{
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.leftmenu{
+    max-width:68px;
+    float:left;
+    background-color:#333739;
+    position:relative;
+    height:100%;
+    padding: 20px;
+    padding-top: 100px;
+    overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.sidebar{
+    width:0;
+    height:100%;
+    float:left;
+    background-color:#eeeeee;
+    overflow:auto;
+    position:relative;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.signin{
+   float:left;
+   height:100%;
+}
+.reviewalertslide{
+    opacity:1;
+}
+.reviewslide{
+    max-height:600px;
+}
+.leftMenuShow{
+    max-width: 300px;
+}
+
+.sidebarShow{
+    width: 400px;
+}
+
+/*google map styles*/
+.controls {
+	margin-top: 16px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  #pac-input {
+	background-color: #fff;
+	padding: 0 11px 0 13px;
+	width: 400px;
+	font-family: Roboto, sans-serif;
+	font-size: 15px;
+	font-weight: 300;
+	text-overflow: ellipsis;
+  }
+
+  #pac-input:focus {
+	border-color: #4d90fe;
+	margin-left: -1px;
+	padding-left: 14px;  /* Regular padding-left + 1. */
+	width: 401px;
+  }
+
+  .pac-container {
+	font-family: Roboto, sans-serif;
+  }
+
+  #type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0 11px;
+  }
+
+  #type-selector label {
+	font-family: Roboto, sans-serif;
+	font-size: 13px;
+	font-weight: 300;
+  }
